@@ -458,8 +458,14 @@
             
             NSString *previousText = textField.text;
             NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-            [formater setDateFormat:@"YYYY-MM-dd"];
-
+			
+// begin cbleu fix
+// Format de la date en fonction de la langue du systeme
+// => supprimer le format en dur
+//            [formater setDateFormat:@"YYYY-MM-dd"];
+			[formater setDateStyle: NSDateFormatterShortStyle];
+// end cbleu fix
+			
             UIDatePicker *datePicker = [[UIDatePicker alloc] init];
             datePicker.datePickerMode = UIDatePickerModeDate;
             [datePicker bk_addEventHandler:^(UIDatePicker *sender) {
@@ -476,7 +482,7 @@
 
             UIBarButtonItem *extraSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
-            // begin cbleu fix
+// begin cbleu fix
 //            UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
 //                style:UIBarButtonItemStyleBordered handler:
 //                ^(id sender)
@@ -518,7 +524,7 @@
 												   [self textFieldShouldReturn:textField];
 											   }];
 			
-			// end cbleu fix
+// end cbleu fix
 			
             [keyboardToolbar setItems:@[cancelButton, extraSpace, validateButton]];
             textField.inputAccessoryView = keyboardToolbar;
