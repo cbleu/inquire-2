@@ -496,12 +496,15 @@
     vc.configuration = c;
     
 //begin cbleu fix
-//    [self.navigationController presentViewController:vc animated:NO completion:nil];
-	
-	// enchainement des animations pour ne pas provoquer d'erreur
-    [loginController dismissViewControllerAnimated:YES completion:^{
-        [self.navigationController presentViewController: vc animated:YES completion:NULL];
-    }];
+// Utiliser le parametre sender pour savoir si l'action arrive de la fenetre login ou admin
+	if(sender){
+		[self.navigationController presentViewController:vc animated:NO completion:nil];
+	}else{
+		// enchainement des animations pour ne pas provoquer d'erreur
+		[loginController dismissViewControllerAnimated:YES completion:^{
+			[self.navigationController presentViewController: vc animated:YES completion:NULL];
+		}];
+	}
 //end cbleu fix
 }
 

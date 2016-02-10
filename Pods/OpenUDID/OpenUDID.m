@@ -125,19 +125,35 @@ static int const kOpenUDIDRedundancySlots = 100;
     // We then hash it with md5 to get 32 bytes, and then add 4 extra random bytes
     // Collision is possible of course, but unlikely and suitable for most industry needs (e.g.. aggregate tracking)
     //
-    if (_openUDID==nil) {
+
+// begin cbleu fix
+//	if (_openUDID==nil) {
+//		unsigned char result[16];
+//		const char *cStr = [[[NSProcessInfo processInfo] globallyUniqueString] UTF8String];
+//		CC_MD5( cStr, strlen(cStr), result );
+//		_openUDID = [NSString stringWithFormat:
+//					 @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%08x",
+//					 result[0], result[1], result[2], result[3],
+//					 result[4], result[5], result[6], result[7],
+//					 result[8], result[9], result[10], result[11],
+//					 result[12], result[13], result[14], result[15],
+//					 arc4random() % 4294967295];
+//	}
+
+	if (_openUDID==nil) {
         unsigned char result[16];
         const char *cStr = [[[NSProcessInfo processInfo] globallyUniqueString] UTF8String];
         CC_MD5( cStr, strlen(cStr), result );
         _openUDID = [NSString stringWithFormat:
-                @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%08x",
+                @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%08lx",
                 result[0], result[1], result[2], result[3], 
                 result[4], result[5], result[6], result[7],
                 result[8], result[9], result[10], result[11],
                 result[12], result[13], result[14], result[15],
-                arc4random() % 4294967295];  
+                arc4random() % 4294967295];
     }
-    
+// end cbleu fix
+	
     // Call to other developers in the Open Source community:
     //
     // feel free to suggest better or alternative "UDID" generation code above.

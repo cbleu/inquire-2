@@ -109,11 +109,10 @@
 		31F73F7412F5C36B00035C53 /* ColorReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73F7312F5C36B00035C53 /* ColorReader.m */; };
 		31F73F9912F5C76500035C53 /* UrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73F9812F5C76500035C53 /* UrlHelper.m */; };
 		31F73FA412F5C79500035C53 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73FA312F5C79500035C53 /* NSFileManager+DirectoryLocations.m */; };
-		F8EEF453696B4E8BB8FAAD69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AD93B11869471DA26752E7 /* libPods.a */; };
+		F8EEF453696B4E8BB8FAAD69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AD93B11869471DA26752E7 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		058B93D1E398854C5360BAF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* inquireAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inquireAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* inquireAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = inquireAppDelegate.m; sourceTree = "<group>"; };
@@ -166,7 +165,7 @@
 		314B8F3A131D4DD200DF2EF7 /* Configuration-inquire-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Configuration-inquire-64.png"; sourceTree = "<group>"; };
 		314B8F3B131D4DD200DF2EF7 /* Configuration-inquire-320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Configuration-inquire-320.png"; sourceTree = "<group>"; };
 		31518AE712D77C1900013697 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		31527EC316CE4FD000DBD34E /* AdminView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminView.xib; path = "../../Classes/View Controllers/Admin/AdminView.xib"; sourceTree = "<group>"; };
+		31527EC316CE4FD000DBD34E /* AdminView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminView.xib; path = Admin/AdminView.xib; sourceTree = "<group>"; };
 		3155E740162CAFA800A02565 /* smiley_0_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_0_unselected.png; sourceTree = "<group>"; };
 		3155E741162CAFA800A02565 /* smiley_1_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_1_unselected.png; sourceTree = "<group>"; };
 		3155E742162CAFA800A02565 /* smiley_2_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley_2_unselected.png; sourceTree = "<group>"; };
@@ -279,8 +278,9 @@
 		31F73FA212F5C79500035C53 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		31F73FA312F5C79500035C53 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* inquire 2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "inquire 2_Prefix.pch"; sourceTree = "<group>"; };
+		5DBCE36FB6A63A15EB055CF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C6AD93B11869471DA26752E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2150C6BDA87413399D23685 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D3EF4DF9E5777AD0C1CA397C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,7 +339,7 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3160875C12CA204300202550 /* inquire 2-Info.plist */,
 				3160875D12CA204300202550 /* inquire.xcdatamodeld */,
-				E5D407DE04E54BB264E51C13 /* Pods */,
+				8790F6DB6741BDA860509048 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -719,11 +719,11 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E5D407DE04E54BB264E51C13 /* Pods */ = {
+		8790F6DB6741BDA860509048 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F2150C6BDA87413399D23685 /* Pods.debug.xcconfig */,
-				058B93D1E398854C5360BAF7 /* Pods.release.xcconfig */,
+				D3EF4DF9E5777AD0C1CA397C /* Pods.debug.xcconfig */,
+				5DBCE36FB6A63A15EB055CF7 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -740,7 +740,7 @@
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				623842529C0D4049BCA5503E /* Copy Pods Resources */,
-				FE58B9362F6FF5F2E13F8717 /* Embed Pods Frameworks */,
+				A1D62F4018CA138F76AACA28 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -757,11 +757,11 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Counterwinds;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = UYE7W2P98H;
+						DevelopmentTeam = 7XP7M76727;
 					};
 				};
 			};
@@ -877,7 +877,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
-		FE58B9362F6FF5F2E13F8717 /* Embed Pods Frameworks */ = {
+		A1D62F4018CA138F76AACA28 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1039,11 +1039,12 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2150C6BDA87413399D23685 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D3EF4DF9E5777AD0C1CA397C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1051,29 +1052,34 @@
 				GCC_PREFIX_HEADER = "inquire 2_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "inquire 2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = mu.inquire.inquire;
 				PRODUCT_NAME = "inquire 2";
-				PROVISIONING_PROFILE = "b0622055-1038-461d-969e-aeafbfb86ae4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 058B93D1E398854C5360BAF7 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5DBCE36FB6A63A15EB055CF7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "inquire 2_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "inquire 2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = mu.inquire.inquire;
 				PRODUCT_NAME = "inquire 2";
-				PROVISIONING_PROFILE = "0578ff8a-00c9-4190-8d04-36cda63c82f0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1082,6 +1088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jeanne Beringuer (LPUB73TY9Y)";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

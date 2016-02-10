@@ -50,10 +50,23 @@
 
     // Initializing location
     locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
+	locationManager.delegate = self;
+
+// begin cbleu fix
+// need authorization for IOS8
+	[locationManager requestWhenInUseAuthorization];
+
+	if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+		[locationManager requestWhenInUseAuthorization];
+	}
+	[locationManager startUpdatingLocation];
+
+// end cbleu fix
+
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
+	
+//	[locationManager requestLocation];
 
     [NSTimer scheduledTimerWithTimeInterval:40
                                      target:self
@@ -136,7 +149,9 @@
 
     if(contentManager.currentOperation == ContentManagerOperationNone && [AppCredentials areCredentialSet]) {
         if((postDataTick%2)) {
-            [contentManager updateDeviceWithCoordinates:self.lastLocation
+//			NSLog(@"%f:%f", self.lastLocationOld.latitude, self.lastLocationOld.longitude);
+			NSLog(@"%f:%f", self.lastLocation.coordinate.latitude, self.lastLocation.coordinate.longitude);
+            [contentManager updateDeviceWithCoordinates:self.lastLocationOld
                                             deviceToken:[OpenUDID value]];
         } else {
             NSString *formResults = [NSString stringWithContentsOfFile:[UrlHelper formResultsFilePath]
@@ -170,9 +185,23 @@
 
 #pragma mark --
 #pragma mark Location
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    self.lastLocation = newLocation.coordinate;
+// begin cbleu fix
+//deprecated
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+//    self.lastLocationOld = newLocation.coordinate;
+//}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+	CLLocation *newLocation = locations.lastObject;
+
+	self.lastLocationOld = newLocation.coordinate;	// Keep for legacy
+	self.lastLocation = newLocation;				// use that one now
 }
+
+// end cbleu fix
+
+
 
 #pragma mark -
 #pragma mark Memory management

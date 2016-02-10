@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
 #import "ContentManager.h"
-#import <CoreLocation/CoreLocation.h>
+//#import <CoreLocation/CoreLocation.h>
 
 @class MGSplitViewController;
 @class DataExporter;
@@ -32,8 +32,10 @@
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
 @property (nonatomic, strong) ContentManager *contentManager;
-@property CLLocationCoordinate2D lastLocation;
-
+// begin cbleu fix
+@property CLLocationCoordinate2D lastLocationOld;	// Old format
+@property CLLocation* lastLocation;					// New format for IOS > 6
+// end cbleu fix
 - (NSString *)applicationDocumentsDirectory;
 
 

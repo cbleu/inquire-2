@@ -290,9 +290,11 @@
 
     // Is Optin ?
     if(!isOptin) {
-        CLLocationCoordinate2D c = appDelegate.lastLocation;
+//		CLLocationCoordinate2D c = appDelegate.lastLocationOld;
+		CLLocation* coord = appDelegate.lastLocation;
 
-        NSLog(@"%f:%f", appDelegate.lastLocation.latitude, appDelegate.lastLocation.longitude);
+//		NSLog(@"%f:%f", appDelegate.lastLocationOld.latitude, appDelegate.lastLocationOld.longitude);
+		NSLog(@"Location: %f:%f", coord.coordinate.latitude, coord.coordinate.longitude);
 
         contentToWrite = [NSString stringWithFormat:@"\r\n%@,%@,%f,%f,%@",
                           // Date
@@ -300,7 +302,8 @@
                           // iPad identifier
                           [AppCredentials publicId],
                           // Geolocation : latitude and longitude
-                          c.latitude, c.longitude,
+//						  c.latitude, c.longitude,
+						  coord.coordinate.latitude, coord.coordinate.longitude,
                           // Answers
                           contentToWrite];
 

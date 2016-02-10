@@ -14,7 +14,12 @@
 - (CGFloat)red {
 	CGFloat retValue = 0.0;
 	CGColorRef color = [self CGColor];
-	int numComponents = CGColorGetNumberOfComponents(color);
+
+// begin cbleu fix
+//	int numComponents = CGColorGetNumberOfComponents(color);
+	unsigned long numComponents = CGColorGetNumberOfComponents(color);
+// end cbleu fix
+
 	if (numComponents == 4) {
 		const CGFloat *components = CGColorGetComponents(color);
 		retValue = components[0];
@@ -25,7 +30,12 @@
 - (CGFloat)green {
 	CGFloat retValue = 0.0;
 	CGColorRef color = [self CGColor];
-	int numComponents = CGColorGetNumberOfComponents(color);
+	
+// begin cbleu fix
+//	int numComponents = CGColorGetNumberOfComponents(color);
+	unsigned long numComponents = CGColorGetNumberOfComponents(color);
+// end cbleu fix
+	
 	if (numComponents == 4) {
 		const CGFloat *components = CGColorGetComponents(color);
 		retValue = components[1];
@@ -36,7 +46,12 @@
 - (CGFloat)blue {
 	CGFloat retValue = 0.0;
 	CGColorRef color = [self CGColor];
-	int numComponents = CGColorGetNumberOfComponents(color);
+	
+// begin cbleu fix
+//	int numComponents = CGColorGetNumberOfComponents(color);
+	unsigned long numComponents = CGColorGetNumberOfComponents(color);
+// end cbleu fix
+	
 	if (numComponents == 4) {
 		const CGFloat *components = CGColorGetComponents(color);
 		retValue = components[2];
@@ -47,7 +62,12 @@
 - (CGFloat)alpha {
 	CGFloat retValue = 0.0;
 	CGColorRef color = [self CGColor];
-	int numComponents = CGColorGetNumberOfComponents(color);
+	
+// begin cbleu fix
+//	int numComponents = CGColorGetNumberOfComponents(color);
+	unsigned long numComponents = CGColorGetNumberOfComponents(color);
+// end cbleu fix
+	
 	if (numComponents == 4) {
 		const CGFloat *components = CGColorGetComponents(color);
 		retValue = components[3];
