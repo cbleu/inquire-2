@@ -78,19 +78,30 @@
     // Measuring time between interactions
     idleMeasureEnabled = YES;
     [self resetIdleTimer];
+
+    // begin cbleu fix
+    [super viewWillAppear:animated];
+    // end cbleu fix
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     idleMeasureEnabled = NO;
     [self resetIdleTimer];
+
+    // begin cbleu fix
+    [super viewWillDisappear:animated];
+    // end cbleu fix
 }
 
 - (void)viewDidAppear {
-	if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-		[self willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0];
-	} else {
-		[self willRotateToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0];
-	}
+    // begin cbleu fix
+//	if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+//		[self willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0];
+//	} else {
+//		[self willRotateToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0];
+//	}
+    [[UIApplication sharedApplication] statusBarOrientation];
+    // end cbleu fix
 }
 
 #pragma mark --
@@ -111,9 +122,21 @@
 }
  */
 
-- (NSUInteger)supportedInterfaceOrientations {
+// begin cbleu fix
+
+//- (NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskAll;
+//}
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
     return UIInterfaceOrientationMaskAll;
 }
+
+// end cbleu fix
 
 #pragma mark --
 #pragma mark Slide Detection
@@ -453,14 +476,24 @@
 
             UIBarButtonItem *extraSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
+            // begin cbleu fix
+//            UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
+//                style:UIBarButtonItemStyleBordered handler:
+//                ^(id sender)
+//                {
+//                    textField.text = previousText;
+//                    [textField resignFirstResponder];
+//                }];
             UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
-                style:UIBarButtonItemStyleBordered handler:
-                ^(id sender)
-                {
-                    textField.text = previousText;
-                    [textField resignFirstResponder];
-                }];
-
+                                                                                style: UIBarButtonItemStylePlain
+                                                                              handler:
+                                             ^(id sender)
+                                             {
+                                                 textField.text = previousText;
+                                                 [textField resignFirstResponder];
+                                             }];
+            // end cbleu fix
+            
             UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
                 style:UIBarButtonItemStyleDone handler:
                 ^(id sender)
@@ -490,13 +523,23 @@
             
             UIBarButtonItem *extraSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             
+            // begin cbleu fix
+//            UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
+//                style:UIBarButtonItemStyleBordered handler:
+//                ^(id sender)
+//                {
+//                    textField.text = previousText;
+//                    [textField resignFirstResponder];
+//                }];
             UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
-                style:UIBarButtonItemStyleBordered handler:
-                ^(id sender)
-                {
-                    textField.text = previousText;
-                    [textField resignFirstResponder];
-                }];
+                                                                                style:UIBarButtonItemStylePlain
+                                                                              handler:
+                                             ^(id sender)
+                                             {
+                                                 textField.text = previousText;
+                                                 [textField resignFirstResponder];
+                                             }];
+            // end cbleu fix
             
             UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
                 style:UIBarButtonItemStyleDone handler:

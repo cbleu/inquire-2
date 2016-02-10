@@ -37,6 +37,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [delegate screensaverDidAppear:self];
+    // begin cbleu fix
+    [super viewDidAppear:animated];
+    // end cbleu fix
 }
 
 #pragma mark --
@@ -53,9 +56,21 @@
 }
  */
 
-- (NSUInteger)supportedInterfaceOrientations {
+// begin cbleu fix
+//- (NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskAll;
+//}
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
     return UIInterfaceOrientationMaskAll;
 }
+// end cbleu fix
+
 
 - (void)nextScreen {
     self.view.backgroundColor = [UIColor blackColor];

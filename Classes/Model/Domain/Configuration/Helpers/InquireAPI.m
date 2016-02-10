@@ -60,8 +60,9 @@
 - (void)fetchSurveysListWithSuccess:(void(^)(NSArray *surveys))success
                             failure:(void(^)(NSError *error))failure {
     //
-    NSURL *url = [WebUrlHelper surveysListURL];
-    
+    // begin cbleu fix
+    //    NSURL *url = [WebUrlHelper surveysListURL];
+    // end cbleu fix
     /*
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
     [client setDefaultCredential:[AppCredentials userCredentials]];
@@ -134,7 +135,9 @@
 #pragma mark --
 #pragma mark Private
 + (NSArray *)surveysListFromString:(NSString *)content {
-    NSError *error = nil;
+    // begin cbleu fix
+//    NSError *error = nil;
+    // end cbleu fix
 #warning FIXMe
     /*
 	CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:content

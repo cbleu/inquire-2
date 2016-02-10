@@ -22,12 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor underPageBackgroundColor];
+    // begin cbleu fix
+//    self.view.backgroundColor = [UIColor underPageBackgroundColor];
+    // il n'y a pas de remplacement ! le blanc est un fond acceptable !
+    self.view.backgroundColor = [UIColor whiteColor];
+    // end cbleu fix
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [loginTextField resignFirstResponder];
     [passwordTextField resignFirstResponder];
+
+    // begin cbleu fix
+    [super viewWillDisappear:animated];
+    // end cbleu fix
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -36,6 +44,10 @@
     
     [userFormSchedule invalidate];
     userFormSchedule = nil;
+
+    // begin cbleu fix
+    [super viewDidDisappear:animated];
+    // end cbleu fix
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,6 +69,10 @@
         
         countdownLabel.text = NSLocalizedString(@"Aucune enquête n'a encore été déployée sur cet iPad", @"");
     }
+
+    // begin cbleu fix
+    [super viewWillAppear:animated];
+    // end cbleu fix
 }
 
 - (IBAction)submitPressed:(id)sender {
@@ -85,11 +101,21 @@
 }
  */
 
-- (NSUInteger)supportedInterfaceOrientations {
+// begin cbleu fix
+
+//- (NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskAll;
+//}
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
     return UIInterfaceOrientationMaskAll;
 }
 
-
+// end cbleu fix
 
 - (void)displayErrorMessageWithTitle:(NSString *)title message:(NSString *)message {
     [self displayErrorMessageWithTitle:title message:message delegate:nil];

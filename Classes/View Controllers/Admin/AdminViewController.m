@@ -51,22 +51,41 @@
                                                                               target:self
                                                                               action:@selector(launchUserForm:)];
 
+// begin cbleu fix
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Retour au login", @"")
+//                                                                              style:UIBarButtonItemStyleBordered
+//                                                                             target:self
+//                                                                             action:@selector(displayLoginScreen:)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Retour au login", @"")
-                                                                              style:UIBarButtonItemStyleBordered
-                                                                             target:self
-                                                                             action:@selector(displayLoginScreen:)];
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(displayLoginScreen:)];
+// end cbleu Fix
+    
+// begin cbleu fix
+    [super viewDidLoad];
+// end cbleu fix
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
+
+// begin cbleu fix
+    [super viewWillAppear:animated];
+// end cbleu fix
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    // begin cbleu fix
+    [super viewDidAppear:animated];
+    // end cbleu fix
+
     [self.tableView reloadData];
     if(shouldDisplayLoginController) {
         shouldDisplayLoginController = NO;
         [self displayLoginScreen:nil];
     }
+
 }
 
 #pragma mark --
@@ -84,9 +103,21 @@
 }
  */
 
-- (NSUInteger)supportedInterfaceOrientations {
+// begin cbleu fix
+
+//- (NSUInteger)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskAll;
+//}
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
     return UIInterfaceOrientationMaskAll;
 }
+
+// end cbleu fix
 
 #pragma mark - Table view data source
 
@@ -264,10 +295,16 @@
 - (void)loginControllerDidAskUserForm:(LoginViewController *)controller {
     SurveyConfiguration *c = [SurveyConfiguration configuration];
     if(c != nil) {
-        [loginController dismissViewControllerAnimated:NO completion:nil];
+// begin cbleu fix
+// modif pour finir l'animation de sortie avant le debut de l'ajout
+//        [loginController dismissViewControllerAnimated:NO completion:nil];
+// end cbleu fix
         [self launchUserForm:nil];
         // Should display loginController again if the user asks to come back to admin
-        shouldDisplayLoginController = YES;
+// begin cbleu fix
+// le flag à YES fait revenir à l'écran de login => supprimé
+//        shouldDisplayLoginController = YES;
+// end cbleu fix
     }
 }
 
@@ -450,12 +487,22 @@
                                               message:NSLocalizedString(@"Vous n'avez sélectionné aucune enquête à utiliser.", @"")];
         return;
     }
-
-    shouldDisplayLoginController = YES;
-    
+// begin cbleu fix
+// gestion du flag pour ne pas avoir un retour intempestif au login
+//    shouldDisplayLoginController = YES;
+// end cbleu fix
+	
     UserMainViewController *vc = [[UserMainViewController alloc] initWithNibName:@"UserMainView" bundle:nil];
     vc.configuration = c;
-    [self.navigationController presentViewController:vc animated:NO completion:nil];
+    
+//begin cbleu fix
+//    [self.navigationController presentViewController:vc animated:NO completion:nil];
+	
+	// enchainement des animations pour ne pas provoquer d'erreur
+    [loginController dismissViewControllerAnimated:YES completion:^{
+        [self.navigationController presentViewController: vc animated:YES completion:NULL];
+    }];
+//end cbleu fix
 }
 
 

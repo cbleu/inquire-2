@@ -14,12 +14,17 @@
     NSString *textContent;
     NSInteger fontSize;
     UIColor *fontColor;
-    UITextAlignment textAlignment;
+// begin cbleu fix
+//    UITextAlignment textAlignment;
+    NSTextAlignment textAlignment;
+// end cbleu fix
 }
 
 @property (nonatomic, strong) NSString *textContent;
 @property (nonatomic, assign) NSInteger fontSize;
 @property (nonatomic, strong) UIColor *fontColor;
-@property (nonatomic, assign) UITextAlignment textAlignment;
-
+// begin cbleu fix
+//@property (nonatomic, assign) UITextAlignment textAlignment;
+@property (nonatomic, assign) NSTextAlignment textAlignment;
+// end cbleu fix
 @end
