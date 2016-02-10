@@ -1,0 +1,6 @@
+workspace 'Inquire 2.xcworkspace'
+platform :ios, '6.0'
+pod 'OpenUDID', '~> 1.0.0'
+pod 'AFNetworking', '~> 1.3.2'
+pod 'RaptureXML'
+pod 'BlocksKit'
