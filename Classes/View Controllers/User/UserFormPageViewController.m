@@ -484,24 +484,42 @@
 //                    textField.text = previousText;
 //                    [textField resignFirstResponder];
 //                }];
-            UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
-                                                                                style: UIBarButtonItemStylePlain
-                                                                              handler:
-                                             ^(id sender)
-                                             {
-                                                 textField.text = previousText;
-                                                 [textField resignFirstResponder];
-                                             }];
-            // end cbleu fix
-            
-            UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
-                style:UIBarButtonItemStyleDone handler:
-                ^(id sender)
-                {
-                    textField.text = [formater stringFromDate:datePicker.date];
-                    [self textFieldShouldReturn:textField];
-                }];
-            
+
+
+//			UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
+//																				style:UIBarButtonItemStylePlain
+//																			  handler:
+//											 ^(id sender)
+//											 {
+//												 textField.text = previousText;
+//												 [textField resignFirstResponder];
+//											 }];
+			UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:NSLocalizedString(@"toolbar.keyboard.cancel", nil)
+																				style:UIBarButtonItemStylePlain
+																			  handler:
+											 ^(id sender)
+											 {
+												 textField.text = previousText;
+												 [textField resignFirstResponder];
+											 }];
+			
+//			UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
+//																				  style:UIBarButtonItemStyleDone handler:
+//											   ^(id sender)
+//											   {
+//												   [textField resignFirstResponder];
+//												   [self textFieldShouldReturn:textField];
+//											   }];
+			UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:NSLocalizedString(@"toolbar.keyboard.validate", nil)
+																				  style:UIBarButtonItemStyleDone handler:
+											   ^(id sender)
+											   {
+												   [textField resignFirstResponder];
+												   [self textFieldShouldReturn:textField];
+											   }];
+			
+			// end cbleu fix
+			
             [keyboardToolbar setItems:@[cancelButton, extraSpace, validateButton]];
             textField.inputAccessoryView = keyboardToolbar;
 
@@ -531,23 +549,41 @@
 //                    textField.text = previousText;
 //                    [textField resignFirstResponder];
 //                }];
-            UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
-                                                                                style:UIBarButtonItemStylePlain
-                                                                              handler:
-                                             ^(id sender)
-                                             {
-                                                 textField.text = previousText;
-                                                 [textField resignFirstResponder];
-                                             }];
-            // end cbleu fix
-            
-            UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
-                style:UIBarButtonItemStyleDone handler:
-                ^(id sender)
-                {
-                    [textField resignFirstResponder];
-                    [self textFieldShouldReturn:textField];
-                }];
+			
+//			UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Cancel"
+//																				style:UIBarButtonItemStylePlain
+//																			  handler:
+//											 ^(id sender)
+//											 {
+//												 textField.text = previousText;
+//												 [textField resignFirstResponder];
+//											 }];
+			UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] bk_initWithTitle:NSLocalizedString(@"toolbar.keypad.cancel", nil)
+																				style:UIBarButtonItemStylePlain
+																			  handler:
+											 ^(id sender)
+											 {
+												 textField.text = previousText;
+												 [textField resignFirstResponder];
+											 }];
+
+//			UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:@"Validate"
+//																				  style:UIBarButtonItemStyleDone handler:
+//											   ^(id sender)
+//											   {
+//												   [textField resignFirstResponder];
+//												   [self textFieldShouldReturn:textField];
+//											   }];
+			UIBarButtonItem *validateButton = [[UIBarButtonItem alloc] bk_initWithTitle:NSLocalizedString(@"toolbar.keypad.validate", nil)
+																				  style:UIBarButtonItemStyleDone handler:
+											   ^(id sender)
+											   {
+												   [textField resignFirstResponder];
+												   [self textFieldShouldReturn:textField];
+											   }];
+			
+			// end cbleu fix
+			
 
             //
             [keyboardToolbar setItems:@[cancelButton, extraSpace, validateButton]];
