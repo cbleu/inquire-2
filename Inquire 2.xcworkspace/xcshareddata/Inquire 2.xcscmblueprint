@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "373D2A84C3FA381D6393C630C684037C29E484C0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9EA236890CFDBEF1851B9596714EE00EE81B26F3" : 0,
+    "373D2A84C3FA381D6393C630C684037C29E484C0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B93BD3B5-E72F-469C-9DD6-9EECE2C7CD81",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9EA236890CFDBEF1851B9596714EE00EE81B26F3" : "inquire_2",
+    "373D2A84C3FA381D6393C630C684037C29E484C0" : "inquire-2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Inquire 2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Inquire 2.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:cbleu\/inquire-2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "373D2A84C3FA381D6393C630C684037C29E484C0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/counterwinds\/inquire-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9EA236890CFDBEF1851B9596714EE00EE81B26F3"
+    }
+  ]
+}
