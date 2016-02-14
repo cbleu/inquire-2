@@ -109,6 +109,7 @@
 		31F73F7412F5C36B00035C53 /* ColorReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73F7312F5C36B00035C53 /* ColorReader.m */; };
 		31F73F9912F5C76500035C53 /* UrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73F9812F5C76500035C53 /* UrlHelper.m */; };
 		31F73FA412F5C79500035C53 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F73FA312F5C79500035C53 /* NSFileManager+DirectoryLocations.m */; };
+		DB4D87871C70DF3E00150F95 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4D87861C70DF3E00150F95 /* Images.xcassets */; };
 		F8EEF453696B4E8BB8FAAD69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AD93B11869471DA26752E7 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -281,6 +282,7 @@
 		5DBCE36FB6A63A15EB055CF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C6AD93B11869471DA26752E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EF4DF9E5777AD0C1CA397C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DB4D87861C70DF3E00150F95 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "inquire 2/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -541,6 +543,7 @@
 		3160875412CA200D00202550 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DB4D87861C70DF3E00150F95 /* Images.xcassets */,
 				31740ED013D9C09600FF9DF2 /* Localizable.strings */,
 				314B8F3A131D4DD200DF2EF7 /* Configuration-inquire-64.png */,
 				314B8F3B131D4DD200DF2EF7 /* Configuration-inquire-320.png */,
@@ -821,6 +824,7 @@
 				314B8F3D131D4DD200DF2EF7 /* Configuration-inquire-320.png in Resources */,
 				31369A2A1324C9B1003C7F79 /* icon.png in Resources */,
 				31141A1113478564000C98CA /* logo_inquire_big.png in Resources */,
+				DB4D87871C70DF3E00150F95 /* Images.xcassets in Resources */,
 				31F1EE64134F7A6E00FD716E /* radio_selected.png in Resources */,
 				31F1EE65134F7A6E00FD716E /* radio_unselected.png in Resources */,
 				319CFEF013A26B010095FE7E /* iTunesArtwork in Resources */,
@@ -1042,6 +1046,8 @@
 			baseConfigurationReference = D3EF4DF9E5777AD0C1CA397C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1053,7 +1059,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "inquire 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = mu.inquire.inquire;
+				PRODUCT_BUNDLE_IDENTIFIER = re.cbleu.inquire;
 				PRODUCT_NAME = "inquire 2";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1066,6 +1072,8 @@
 			baseConfigurationReference = 5DBCE36FB6A63A15EB055CF7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1075,7 +1083,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "inquire 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_BUNDLE_IDENTIFIER = mu.inquire.inquire;
+				PRODUCT_BUNDLE_IDENTIFIER = re.cbleu.inquire;
 				PRODUCT_NAME = "inquire 2";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

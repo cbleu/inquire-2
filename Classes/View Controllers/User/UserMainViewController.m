@@ -36,11 +36,19 @@
 }
 
 - (void)viewDidLoad {
+// begin cbleu fix
+	[super viewDidLoad];
+// end cbleu fix
     currentStage = UserMainControllerSurveyStageForm;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if(currentMode == UserMainControllerModeNone) {
+	
+// begin cbleu fix
+	[super viewDidAppear: animated];
+// end cbleu fix
+
+	if(currentMode == UserMainControllerModeNone) {
         [valuesByFormPages removeAllObjects];
         [valuesByOptinPages removeAllObjects];
 
