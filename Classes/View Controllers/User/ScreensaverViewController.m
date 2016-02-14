@@ -36,10 +36,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [delegate screensaverDidAppear:self];
     // begin cbleu fix
     [super viewDidAppear:animated];
     // end cbleu fix
+    [delegate screensaverDidAppear:self];
 }
 
 #pragma mark --
