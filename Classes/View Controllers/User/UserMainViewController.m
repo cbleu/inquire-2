@@ -75,17 +75,17 @@
 
 // begin cbleu fix
 // deprecated function
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAll;
-//}
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
-    return UIInterfaceOrientationMaskPortrait;
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
 }
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+//- (NSUInteger)supportedInterfaceOrientations
+//#else
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#endif
+//{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 // end cbleu fix
 
 

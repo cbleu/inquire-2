@@ -105,17 +105,17 @@
 
 // begin cbleu fix
 
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAll;
-//}
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+//- (NSUInteger)supportedInterfaceOrientations
+//#else
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#endif
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 // end cbleu fix
 
