@@ -26,8 +26,10 @@
 @implementation UserMainViewController
 
 @synthesize configuration;
+@synthesize adminVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     if((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         valuesByFormPages = [[NSMutableArray alloc] init];
         valuesByOptinPages = [[NSMutableArray alloc] init];
@@ -37,14 +39,15 @@
 
 - (void)viewDidLoad {
 // begin cbleu fix
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[super viewDidLoad];
 // end cbleu fix
     currentStage = UserMainControllerSurveyStageForm;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	
 // begin cbleu fix
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[super viewDidAppear: animated];
 // end cbleu fix
 
@@ -165,6 +168,14 @@
 }
 
 - (void)formPageControllerDidAskUserExitToLogin:(UserFormPageViewController *)controller {
+// begin cbleu fix
+//	Gestion de la demande de login avant l'admin
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+	
+	adminVC.shouldDisplayLoginController = YES;
+	
+//	end cbleu fix
+	
     [controller dismissViewControllerAnimated:NO completion:nil];
     [self dismissViewControllerAnimated:NO completion:nil];
 }

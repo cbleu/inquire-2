@@ -74,16 +74,16 @@
     f.dataType = TextInputDataTypeText;
     if([[element attribute:@"data_type"] isEqualToString:@"text"]) {
         f.dataType = TextInputDataTypeText;
-        NSLog(@"text");
+//        NSLog(@"text: %@", f.questionTitle);
     } else if([[element attribute:@"data_type"] isEqualToString:@"date"]) {
         f.dataType = TextInputDataTypeDate;
-        NSLog(@"date");
+//        NSLog(@"date: %@", f.questionTitle);
     } else if([[element attribute:@"data_type"] isEqualToString:@"integer"]) {
         f.dataType = TextInputDataTypeInteger;
-        NSLog(@"integer");
+//        NSLog(@"integer: %@", f.questionTitle);
     } else if([[element attribute:@"data_type"] isEqualToString:@"email_address"]) {
         f.dataType = TextInputDataTypeEmailAddress;
-        NSLog(@"emailAddress");
+//        NSLog(@"emailAddress: %@", f.questionTitle);
     }
     
     
