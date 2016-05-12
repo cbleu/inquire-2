@@ -301,10 +301,15 @@
         // 
         if([textView.text length] > 0) {
             CGRect frame = textView.frame;
-            frame.size.height = textView.contentSize.height;
+
+//			CGSize contentSize = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, FLT_MAX)];
+//			frame.size.height = contentSize.height;
+
+//            frame.size.height = textView.contentSize.height;
             frame.origin.y = headerOffsetY;
             textView.frame = frame;
-            headerOffsetY += frame.size.height;
+//			headerOffsetY += frame.size.height;
+			headerOffsetY +=  textView.contentSize.height;
             textView.hidden = NO;
         } else {
             textView.text = @"";
