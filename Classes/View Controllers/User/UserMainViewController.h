@@ -10,9 +10,11 @@
 #import "UserController_types.h"
 #import "UserFormPageViewController.h"
 #import "ScreensaverViewController.h"
+#import "AdminViewController.h"
 
 @class UserFormPageViewController;
 @class SurveyConfiguration;
+@class AdminViewController;
 
 @interface UserMainViewController : UIViewController<UserFormPageViewControllerDelegate, ScreensaverViewControllerDelegate, UIAlertViewDelegate> {
 
@@ -26,8 +28,12 @@
 	SurveyConfiguration *configuration;
     UserMainControllerMode currentMode;
     UserMainControllerSurveyStage currentStage;
+	
+	// pointer back to AdminViewController
+	AdminViewController *adminVC;
 }
 
 @property (nonatomic, strong) SurveyConfiguration *configuration;
+@property (nonatomic, strong) AdminViewController *adminVC;
 
 @end

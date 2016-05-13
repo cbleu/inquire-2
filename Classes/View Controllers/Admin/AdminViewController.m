@@ -19,15 +19,20 @@
 #import "AdminLoadingView.h"
 
 @interface AdminViewController ()
+
 - (void)launchUserForm:(id)sender;
 - (void)displayLoginScreen:(id)sender;
 - (NSInteger)numberOfResultsToPost;
 - (void)setLoading:(BOOL)loading withTitle:(NSString *)title;
 @end
 
+
 @implementation AdminViewController
 
+@synthesize shouldDisplayLoginController;
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     if((self = [super initWithCoder:aDecoder])) {
         shouldDisplayLoginController = YES;
         allowedSurveys = [[NSMutableArray alloc] init];
@@ -37,6 +42,7 @@
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     if((self = [super initWithStyle:UITableViewStyleGrouped])) {
         shouldDisplayLoginController = YES;
         allowedSurveys = [[NSMutableArray alloc] init];
@@ -46,7 +52,12 @@
 }
 
 - (void)viewDidLoad {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"afficher le formulaire", @"")
+// begin cbleu fix
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+    [super viewDidLoad];
+// end cbleu fix
+
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"afficher le formulaire", @"")
                                                                                style:UIBarButtonItemStyleDone
                                                                               target:self
                                                                               action:@selector(launchUserForm:)];
@@ -62,21 +73,20 @@
                                                                             action:@selector(displayLoginScreen:)];
 // end cbleu Fix
     
-// begin cbleu fix
-    [super viewDidLoad];
-// end cbleu fix
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.tableView reloadData];
-
 // begin cbleu fix
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewWillAppear:animated];
 // end cbleu fix
+
+	[self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     // begin cbleu fix
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewDidAppear:animated];
     // end cbleu fix
 
@@ -105,17 +115,17 @@
 
 // begin cbleu fix
 
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAll;
-//}
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+//- (NSUInteger)supportedInterfaceOrientations
+//#else
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#endif
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 // end cbleu fix
 
@@ -284,7 +294,9 @@
 #pragma mark --
 #pragma mark LoginViewControllerDelegate
 - (void)loginController:(LoginViewController *)controller didAskLoginWithPublicId:(NSString *)publicId secretKey:(NSString *)secretKey {
-    // Set login
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+
+	// Set login
     [self setLoading:YES withTitle:NSLocalizedString(@"Identification en cours", @"")];
 
     [self sharedContentManager].publicId = publicId;
@@ -293,7 +305,9 @@
 }
 
 - (void)loginControllerDidAskUserForm:(LoginViewController *)controller {
-    SurveyConfiguration *c = [SurveyConfiguration configuration];
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+
+	SurveyConfiguration *c = [SurveyConfiguration configuration];
     if(c != nil) {
 // begin cbleu fix
 // modif pour finir l'animation de sortie avant le debut de l'ajout
@@ -467,6 +481,8 @@
 }
 
 - (void)displayLoginScreen:(id)sender {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+	
     loginController.delegate = self;
 
     /*
@@ -480,6 +496,9 @@
 }
 
 - (void)launchUserForm:(id)sender {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+//	ALog(@"debug ...");
+
     SurveyConfiguration *c = [SurveyConfiguration configuration];
 
     if(c == nil) {
@@ -494,15 +513,18 @@
 	
     UserMainViewController *vc = [[UserMainViewController alloc] initWithNibName:@"UserMainView" bundle:nil];
     vc.configuration = c;
+	// begin cbleu fix
+	// manage flag to ask login
+	vc.adminVC = self;
     
-//begin cbleu fix
+// begin cbleu fix
 // Utiliser le parametre sender pour savoir si l'action arrive de la fenetre login ou admin
 	if(sender){
 		[self.navigationController presentViewController:vc animated:NO completion:nil];
 	}else{
 		// enchainement des animations pour ne pas provoquer d'erreur
-		[loginController dismissViewControllerAnimated:YES completion:^{
-			[self.navigationController presentViewController: vc animated:YES completion:NULL];
+		[loginController dismissViewControllerAnimated:NO completion:^{
+			[self.navigationController presentViewController: vc animated:YES completion: nil];
 		}];
 	}
 //end cbleu fix
@@ -510,6 +532,7 @@
 
 
 - (void)setLoading:(BOOL)loading withTitle:(NSString *)title {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     if(loading && !loadingAlertView) {
         loadingAlertView = [[UIAlertView alloc] initWithTitle:title
                                                       message:@"\n\n"

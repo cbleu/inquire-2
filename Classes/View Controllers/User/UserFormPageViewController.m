@@ -93,21 +93,65 @@
     // end cbleu fix
 }
 
-- (void)viewDidAppear {
-    // begin cbleu fix
-//	if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+//- (void)viewDidAppear:(BOOL)animated {
+//    // begin cbleu fix
+//	
+//	[super viewDidAppear:animated];
+//
+//	UIInterfaceOrientation myOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+//	
+//	if(UIInterfaceOrientationIsPortrait(myOrientation)) {
 //		[self willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0];
 //	} else {
 //		[self willRotateToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0];
 //	}
-    [[UIApplication sharedApplication] statusBarOrientation];
-    // end cbleu fix
+//    // end cbleu fix
+//}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+	[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context)
+	 {
+		 // Ce bloc est appelé sur IOS8+ à chaque rotation de l'appareil
+		 
+		 // UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+		 // do whatever
+		 
+	 } completion:^(id<UIViewControllerTransitionCoordinatorContext> context)
+	 {
+		 
+	 }];
+	
+	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
+
+//#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] != NSOrderedAscending)
+//
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//	[super viewDidAppear:animated];
+//
+////	self.segmentedControl.selectedSegmentIndex = 0;
+////	if(!self.rotatingForDismissal)
+////	{
+////		[self.tableNumberTextField becomeFirstResponder];
+////	}
+//	
+//	
+//	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.3"))
+//	{
+//		[[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];
+//		[[UIDevice currentDevice] setValue:@(self.interfaceOrientation) forKey:@"orientation"];
+//	}
+//	
+//}
+
 
 #pragma mark --
 #pragma mark Rotation related
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self redrawUI];
+	NSLog(@"redrawUI");	//cbleu
 }
 
 // < IOS6
@@ -124,17 +168,17 @@
 
 // begin cbleu fix
 
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAll;
-//}
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+//- (NSUInteger)supportedInterfaceOrientations
+//#else
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#endif
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 // end cbleu fix
 
@@ -257,10 +301,15 @@
         // 
         if([textView.text length] > 0) {
             CGRect frame = textView.frame;
-            frame.size.height = textView.contentSize.height;
+
+//			CGSize contentSize = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, FLT_MAX)];
+//			frame.size.height = contentSize.height;
+
+//            frame.size.height = textView.contentSize.height;
             frame.origin.y = headerOffsetY;
             textView.frame = frame;
-            headerOffsetY += frame.size.height;
+//			headerOffsetY += frame.size.height;
+			headerOffsetY +=  textView.contentSize.height;
             textView.hidden = NO;
         } else {
             textView.text = @"";

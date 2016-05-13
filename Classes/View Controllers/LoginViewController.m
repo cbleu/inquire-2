@@ -21,7 +21,8 @@
 @synthesize loginTextField, passwordTextField, countdownLabel, delegate;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+	[super viewDidLoad];
     // begin cbleu fix
 //    self.view.backgroundColor = [UIColor underPageBackgroundColor];
     // il n'y a pas de remplacement ! le blanc est un fond acceptable !
@@ -30,6 +31,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     [loginTextField resignFirstResponder];
     [passwordTextField resignFirstResponder];
 
@@ -39,6 +41,7 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     loginTextField.text = @"";
     passwordTextField.text = @"";
     
@@ -51,6 +54,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
     [submitButton useGreenConfirmStyle];
 
     if([SurveyConfiguration configuration] != nil) {
@@ -103,17 +107,17 @@
 
 // begin cbleu fix
 
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAll;
-//}
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
+//- (NSUInteger)supportedInterfaceOrientations
+//#else
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//#endif
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 // end cbleu fix
 

@@ -17,7 +17,7 @@ typedef enum {
 
 @interface AdminViewController : UITableViewController<ContentManagerDelegate, LoginViewControllerDelegate, UIAlertViewDelegate> {
     LoginViewController *loginController;
-    NSMutableArray *allowedSurveys;
+    NSMutableArray		*allowedSurveys;
 
     BOOL loggedIn;
     BOOL shouldDisplayLoginController;
@@ -26,5 +26,8 @@ typedef enum {
     NSInteger configurationToLoad;
     UIAlertView *loadingAlertView;
 }
+
+
+@property (nonatomic, assign) BOOL shouldDisplayLoginController;
 
 @end
